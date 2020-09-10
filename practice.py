@@ -1,2 +1,7 @@
-JS = ("J3SUNG", "10", "codding")
-JS[0] = 1
+name = "OWEN"
+def funcPrint():
+    global name
+    name = "mr." + name
+    print(name)
+
+funcPrint()
