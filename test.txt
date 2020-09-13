@@ -1,3 +1,6 @@
-Hello,
-Python!
-Nice to Meet YouPython!
+import pickle
+test_file = open("test.pickle", "wb")
+test = {"A":1, "B":2, "C":["4", "5", 6]}
+print(test)
+pickle.dump(test, test_file)
+test_file.close()
