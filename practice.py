@@ -6,30 +6,20 @@ class People:
         print("{0}이 입장하였습니다.".format(self.name))
         print("나이는 {0}, 몸무게는 {1} 입니다.".format(self.age, self.weight))
 
-    def eat(self, food):
-        print("{0}이 {1}을 먹습니다.".format(self.name, food))
-        self.increase()
+class Car:
+    def __init__(self, speed):
+        self.speed = speed
 
-    def increase(self):
-        print("몸무게가 {0}에서 {1}로 증가되었습니다.".format(self.weight, self.weight + 1))
-        self.weight += 1
+    def drive(self, name):
+        print("{0}이 {1}속도로 주행중입니다.".format(name, self.speed))
 
-class detailPeople(People):
-    def __init__(self, name, age, weight, height):
+class detailPeople(People, Car):
+    def __init__(self, name, age, weight, height, speed):
         People.__init__(self, name, age, weight)
+        Car.__init__(self, speed)
         self.height = height
 
-guest_1 = People("OWEN", 23, 80)
-guest_2 = People("JOLLY", 19, 52)
-
-print("이름 : {0}, 나이 : {1}, 몸무게 : {2}".format(guest_1.name, guest_1.age, guest_1.weight))
-
-guest_1.adult = True
-if guest_1.adult == True:
-    print("{0}은 성인입니다.".format(guest_1.name))
-
-guest_1.eat("치킨")
-print(guest_1.weight)
-
-guest_3 = detailPeople("June", 20, 70, 170)
-print("이름 : {0}, 나이 : {1}, 몸무게 : {2}, 키 : {3}".format(guest_3.name, guest_3.age, guest_3.weight, guest_3.height))
+guest_3 = detailPeople("June", 20, 70, 170, "100km/h")
+print("이름 : {0}, 나이 : {1}, 몸무게 : {2})".format(guest_3.name, guest_3.age, guest_3.weight))
+print("키 : {0}, 속도 : {1}".format(guest_3.height, guest_3.speed))
+guest_3.drive(guest_3.name)
